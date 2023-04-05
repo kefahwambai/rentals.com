@@ -30,17 +30,17 @@ class UsersController < ApplicationController
     else
         render json: { error: review.errors.full_messages }, status: :unprocessable_entity
     end
-    end
+  end
 
     
   
   def destroy
     user = User.find(params[:id])
-    if user.destroy
-      render json: { message: "User deleted successfully" }
-  else
-      render json: { error: "Failed to delete user!" }, status: :unprocessable_entity
-  end
+      if user.destroy
+        render json: { message: "User deleted successfully" }
+    else
+        render json: { error: "Failed to delete user!" }, status: :unprocessable_entity
+    end
   end
   
   private
