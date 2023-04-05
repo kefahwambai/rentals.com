@@ -67,6 +67,17 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  config.action_controller.default_url_options = { host: 'https://carrental-1n1b.onrender.com/', protocol: 'https' }
+
+  config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://rentalsapp.vercel.app',
+    'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS',
+    'Access-Control-Allow-Headers' => 'Origin, Content-Type, Accept, Authorization, Token',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(","),
+    'Access-Control-Allow-Credentials' => 'true'
+  }
+  
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
