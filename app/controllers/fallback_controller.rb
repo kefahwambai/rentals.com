@@ -3,8 +3,9 @@
 class FallbackController < ActionController::Base
 
     def index
-      # React app index page
-      render file: 'public/index.html'
-    end
+        # React app index page
+        render file: Rails.root.join('public', 'index.html'), layout: false
+      end
+      
   end
   
