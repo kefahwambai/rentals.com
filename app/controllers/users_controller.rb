@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   skip_before_action :authorized_user, only: [:show, :create, :index]
   wrap_parameters format: []
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
@@ -15,8 +16,28 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    render json: @user
+  end
+
+  def update
+    user= User.find(params[:id])
+    if user.update(user_params)
+        render json: user
+    else
+        render json: { error: review.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+    
+  
+  def destroy
     user = User.find(params[:id])
-    render json: user, status: :ok
+      if user.destroy
+        render json: { message: "User deleted successfully" }
+    else
+        render json: { error: "Failed to delete user!" }, status: :unprocessable_entity
+    end
   end
 
   private
