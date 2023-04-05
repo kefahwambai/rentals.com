@@ -51,7 +51,9 @@ class UsersController < ApplicationController
 
   def set_csrf_token
     @csrf_token = form_authenticity_token
-  end  
+    response.set_header('X-CSRF-Token', @csrf_token)
+  end
+   
    
 end
   

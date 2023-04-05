@@ -13,7 +13,7 @@ module Carentals
 
     # Configuration for the application, engines, and railties goes here.
     # config/application.rb
-    config.action_controller.forgery_protection_origin_check = false
+    config.action_controller.forgery_protection_origin_check = true
 
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
