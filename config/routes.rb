@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  resources :car_rentals
   resources :reviews
+  resources :car_rentals
+  post '/signup', to: 'users#create'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/me', to: 'users#show'  
+  get '/car_rentals/:car_rental_id/reviews', to: 'reviews#index'
+  
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Routing logic: fallback requests for React Router.
+  # Leave this here to help deploy your app later!
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
