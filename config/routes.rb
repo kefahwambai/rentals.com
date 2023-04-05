@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'  
   get '/car_rentals/:car_rental_id/reviews', to: 'reviews#index'
   match 'signup', to: 'cors#preflight', via: [:options]
+  match 'login', to: 'cors#preflight', via: [:options]
 
-  
   resources :users
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
