@@ -12,7 +12,9 @@ module Carentals
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
-    config.action_controller.default_protect_from_forgery = true
+    # config/application.rb
+    config.action_controller.forgery_protection_origin_check = false
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
