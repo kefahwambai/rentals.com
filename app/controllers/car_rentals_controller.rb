@@ -1,5 +1,5 @@
 class CarRentalsController < ApplicationController
-    before_action :authorized_user
+    skip_before_action :authorized_user
     
     def index
       rentals = CarRental.where(rented: false)
