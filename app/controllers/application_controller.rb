@@ -4,12 +4,10 @@ class ApplicationController < ActionController::API
   before_action :authorized_user
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def authorized_user
-    unless current_user
-      render json: { error: "You are not authorized to access this page." }, status: :unauthorized
-    end
+    render json: { error: 'You need to log in first' }, status: :unauthorized unless current_user
   end
 end
