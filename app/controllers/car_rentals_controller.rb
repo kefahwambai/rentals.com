@@ -2,7 +2,7 @@ class CarRentalsController < ApplicationController
     skip_before_action :authorized_user
     
     def index
-      rentals = CarRental.where(rented: false)
+      rentals = CarRental.all
       render json: rentals
     end
   
