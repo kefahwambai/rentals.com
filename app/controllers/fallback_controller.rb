@@ -1,5 +1,5 @@
-class FallbackController < ActionController::Base
-  def index
-    render file: "#{Rails.root}/public/index.html"
-  end
-end
+# class FallbackController < ActionController::Base
+#   def index
+#     render file: "#{Rails.root}/public/index.html"
+#   end
+# end
