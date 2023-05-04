@@ -39,6 +39,14 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 gem 'rack-cors'
 
+gem 'omniauth-google-oauth2'
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
+
+gem 'devise'
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
